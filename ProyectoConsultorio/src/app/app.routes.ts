@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes } from '@angular/router';
 
-/* Pagina Principal */
-import { HomeComponent } from './PagInicio/home/home.component';
 
+import { HomeComponent } from './PagInicio/home/home.component';//Pagina Principal
 
-/* Pagina Secundarias */
 import { LoginComponent } from './login/login.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 export const routes: Routes = [
     {path: '', component:HomeComponent},
-    {path: 'login', component:LoginComponent}
+    {path: 'login', component:LoginComponent},
+    {path: 'perfil', component:PerfilUsuarioComponent}
 ];

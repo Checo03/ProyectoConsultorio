@@ -3,16 +3,16 @@
 <div class="container-login">
   <div class="login-box">
     <h2>Iniciar sesión</h2>
-    <form>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
         <div class="mb-3">
-            <label for="username" class="form-label">Usuario</label>
-            <input type="text" class="form-control" id="username" placeholder="Ingresa tu usuario" required>
+            <label for="username" class="form-label">Email</label>
+            <input type="text" class="form-control" id="username" placeholder="Ingresa tu correo" required formControlName="email">
         </div>
 
         <div class="mb-3">
             <label for="password" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña" required>
+            <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña" required formControlName="password">
         </div>
 
         <button type="submit" class="btn login-btn">Ingresar</button>
