@@ -1,3 +1,4 @@
 CONFIGURACION FIREBASE
 
     ng add @angular/fire
+    npm install firebase-admin --save

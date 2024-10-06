@@ -1,31 +1,49 @@
-<!--  Cabecera  -->
+<!-- Cabecera -->
 
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
+  <div class="container-fluid">
 
-    <!--  Titulo Cabecera  -->
+    <!-- Titulo -->
 
-      <a class="navbar-brand" href="#">Linea Italia</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <a class="navbar-brand" href="#">Linea Italia</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    
-    <!--  Elementos De La Cabecera  -->
+    <!-- Opciones de la Pagina -->
 
-    
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          
-        </ul>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav" *ngIf="login">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Catalogo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Mi Historial</a>
+        </li>
 
-        <!-- Inicio Sesion -->
 
-        <button class="btn btn-outline-primary" [routerLink]="['/login']">Iniciar Sesión</button>
+        <!-- Opciones del Admin -->
 
-      </div>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/usuario']">Usuarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Registros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Estadistica</a>
+        </li>
+      </ul>
     </div>
-  </nav>
 
-  <router-outlet></router-outlet>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+      <button *ngIf="!login" class="btn btn-outline-primary" [routerLink]="['/login']">Iniciar Sesión</button>
+      <button *ngIf="login" class="btn btn-outline-danger" (click)="onLogout()">Cerrar Sesión</button>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
 
