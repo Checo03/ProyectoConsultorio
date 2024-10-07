@@ -1,0 +1,8 @@
+.container-opciones{
+    margin-top: 20px;
+
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+

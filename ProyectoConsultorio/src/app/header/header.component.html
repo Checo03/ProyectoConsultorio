@@ -1,19 +1,17 @@
 <!-- Cabecera -->
-
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
 
     <!-- Titulo -->
-
     <a class="navbar-brand" href="#">Linea Italia</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <!-- Opciones de la Pagina -->
-
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav" *ngIf="login">
+        <!-- Opciones visibles para todos los usuarios -->
         <li class="nav-item active">
           <a class="nav-link" href="#">Catalogo</a>
         </li>
@@ -21,23 +19,25 @@
           <a class="nav-link" href="#">Mi Historial</a>
         </li>
 
-
-        <!-- Opciones del Admin -->
-
-        <li class="nav-item">
+        <!-- Opciones del Admin (Solo visibles si esAdmin es true) -->
+        <li *ngIf="isAdmin" class="nav-item">
           <a class="nav-link" [routerLink]="['/usuario']">Usuarios</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="isAdmin" class="nav-item">
           <a class="nav-link" href="#">Registros</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Estadistica</a>
+        <li *ngIf="isAdmin" class="nav-item">
+          <a class="nav-link" [routerLink]="['/inventario']">Inventario</a>
+        </li>
+        <li *ngIf="isAdmin" class="nav-item">
+          <a class="nav-link" href="#">Estadística</a>
         </li>
       </ul>
     </div>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+      <!-- Botones de sesión -->
       <button *ngIf="!login" class="btn btn-outline-primary" [routerLink]="['/login']">Iniciar Sesión</button>
       <button *ngIf="login" class="btn btn-outline-danger" (click)="onLogout()">Cerrar Sesión</button>
     </div>
@@ -45,5 +45,3 @@
 </nav>
 
 <router-outlet></router-outlet>
-
-
